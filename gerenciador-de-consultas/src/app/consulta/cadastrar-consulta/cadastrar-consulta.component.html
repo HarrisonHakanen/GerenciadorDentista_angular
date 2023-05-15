@@ -1,0 +1,51 @@
+<h3>Cadastrar consulta</h3>
+
+<div class="well">
+  <form #formConsulta="ngForm">
+    <div class="form-group">
+        
+
+      <label for="dentista">Dentista:</label>
+      <br>
+      <select class="select" [(ngModel)]="dentistaId" name="dentista" #nome="ngModel">
+        <option *ngFor="let dentista of dentistas" [value]="dentista.id">{{ dentista.nome }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="paciente">Paciente:</label>
+      <br>
+      <select class="select" [(ngModel)]="pacienteId" name="paciente" #nome="ngModel"> 
+        <option *ngFor="let paciente of pacientes" [value]="paciente.id">{{paciente.nome}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="tipo_consulta">Tipo de consulta:</label>
+      <br>
+      <select class="select" [(ngModel)]="tipo_consultaId" name="tipo_consulta" #nome="ngModel">
+        <option *ngFor="let tipo_consulta of tipo_consultas" [value]="tipo_consulta.id">{{tipo_consulta.tipo}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Descrição</label>
+        <textarea class="form-control" id="descricao" name="descricao" rows="3" [(ngModel)]="consulta.descricao" #descricao="ngModel"></textarea>
+    </div>
+
+    
+    <div class="form-group text-center">
+        <input 
+        type="submit"
+        class="btn btn-success" 
+        (click)="cadastrarConsulta()"
+        value="Cadastrar"
+        [disabled]="!formConsulta.form.valid">
+      <a [routerLink]="['/consulta/listar']"
+        class="btn btn-default">
+        <span class="glyphicon glyphicon-chevron-left" 
+          aria-hidden="true"></span> Voltar
+      </a>
+    </div>
+  </form>
+</div>

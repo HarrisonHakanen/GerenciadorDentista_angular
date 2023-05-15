@@ -1,0 +1,29 @@
+<h3>Consultas do(a) {{paciente.nome}}</h3>
+<div class="container">
+
+ 
+  <div class="row">
+      <div class="card"  *ngFor="let consulta of consultasDoPaciente">
+        <div class="col-md-4" >
+        <div class="card-body" >
+          <h5 class="card-title">Paciente: {{consulta.paciente?.nome }}</h5>
+          
+          <h5 class="card-title">Dentista: {{consulta.dentista?.nome }}</h5>
+          
+          <h5 class="card-title">Data: {{consulta.data}}</h5>
+
+          <a
+            title="Editar" alt="Editar"
+            class="btn btn-xs btn-info">
+            <span class="glyphicon glyphicon-pencil" 
+              aria-hidden="true"></span> Analisar
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<p *ngIf="consultasDoPaciente.length==0">Nenhuma consulta para esse paciente.</p>

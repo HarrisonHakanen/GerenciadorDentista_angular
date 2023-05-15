@@ -1,0 +1,66 @@
+<h3>Cadastrar paciente</h3>
+
+<div class="well">
+  <form #formDentista="ngForm">
+    <div class="form-group">
+
+      <label for="nome">Nome:</label>
+      <input type="text" class="form-control" id="nome" name="nome" minlength="5" required [(ngModel)]="paciente.nome" #nome="ngModel"> 
+      <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+        <div [hidden]="!nome.errors.required">
+          Digite o nome do dentista.
+        </div>
+        <div [hidden]="!nome.errors.minlength">
+          Nome deve ter no mínio 5 letras.
+        </div>
+      </div>
+
+      <label for="sexo">Sexo:</label>
+      <input type="text" class="form-control" id="sexo" name="sexo" required [(ngModel)]="paciente.sexo" #telefone="ngModel"> 
+      <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="alert alert-danger">
+        <div [hidden]="!telefone.errors.required">
+          Insira o sexo.
+        </div>
+      </div>
+
+      <label for="nascimento">Nascimento:</label>
+      <input type="text" class="form-control" id="crd" name="nascimento" [(ngModel)]="paciente.nascimento" #nascimento="ngModel"> 
+      <div *ngIf="nascimento.errors && (nascimento.dirty || nascimento.touched)" class="alert alert-danger">
+        <div [hidden]="!nascimento.errors.required">
+          Insira o nascimento.
+        </div>
+      </div>
+
+      <label for="CPF">CPF:</label>
+      <input type="text" class="form-control" id="crd" name="CPF" [(ngModel)]="paciente.CPF" #cpf="ngModel"> 
+      <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
+        <div [hidden]="!cpf.errors.required">
+          Insira o CPF.
+        </div>
+      </div>
+
+      <label for="telefone">Telefone:</label>
+      <input type="text" class="form-control" id="crd" name="telefone" [(ngModel)]="paciente.telefone" #telefone="ngModel"> 
+      <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="alert alert-danger">
+        <div [hidden]="!telefone.errors.required">
+          Insira o telefone.
+        </div>
+      </div>
+
+
+    </div>
+    <div class="form-group text-center">
+        <input 
+        type="submit"
+        class="btn btn-success" 
+        (click)="cadastrarPaciente()"
+        value="Cadastrar"
+        [disabled]="!formDentista.form.valid">
+      <a [routerLink]="['/paciente/listar']"
+        class="btn btn-default">
+        <span class="glyphicon glyphicon-chevron-left" 
+          aria-hidden="true"></span> Voltar
+      </a>
+    </div>
+  </form>
+</div>
